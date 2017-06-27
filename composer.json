@@ -1,0 +1,25 @@
+{
+	"name": "webby/extension-mailgun",
+	"type": "webby-extension",
+	"description": "Mailgun extension for Webby CMS",
+	"keywords": ["webby","plugin","extension","mailgun","mail"],
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Bronislav Sedlák",
+			"homepage": "https://bronislavsedlak.com"
+		}
+	],
+	"require": {
+		"klimesf/mailgun": "v0.1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Webby\\Extensions\\Mailgun\\": "src/"
+		}
+	},
+	"config": {
+		"secure-http": false
+	},
+	"minimum-stability": "dev"
+}
