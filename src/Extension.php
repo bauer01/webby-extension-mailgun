@@ -2,8 +2,8 @@
 
 namespace Webby\Extensions\Mailgun;
 
-use Klimesf\Mailgun\MailgunMailer;
 use Nette\DI\CompilerExtension;
+use Nette\Mail\IMailer;
 
 class Extension extends CompilerExtension
 {
@@ -18,14 +18,21 @@ class Extension extends CompilerExtension
         $config = $this->getConfig($this->defaults);
         $builder = $this->getContainerBuilder();
 
-        $builder->getByType()
-            ->setFactory(
-                MailgunMailer::class,
+        $builder->addDefinition($this->prefix('mailgun'))
+            ->setClass(
+                'Mailgun\Mailgun',
                 [
-                    $config
+                    $config['key']
                 ]
             );
 
+        // Replace default mailer
+        $builder->getDefinitionByType(IMailer::class)->setFactory(
+            Mailer::class,
+            [
+                $config['domain']
+            ]
+        );
     }
 
 }
