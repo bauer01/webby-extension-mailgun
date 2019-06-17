@@ -1,5 +1,5 @@
 {
-	"name": "webby/extension-mailgun",
+	"name": "bauer01/webby-extension-mailgun",
 	"type": "webby-extension",
 	"description": "Mailgun extension for Webby CMS",
 	"keywords": ["webby","plugin","extension","mailgun","mail"],
